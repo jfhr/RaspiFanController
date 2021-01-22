@@ -1,7 +1,19 @@
 # Raspberry Pi Fan Controller
 
-![CI](https://github.com/mu88/RaspiFanController/workflows/CI/badge.svg)
-![Release](https://github.com/mu88/RaspiFanController/workflows/Release/badge.svg)
+## Forked from mu88
+
+This fork adds the capability to read temperature from a `thermal_zone` file on Linux which works on systems other than Raspian. To test if it works on your system, run
+
+```Bash
+cat /sys/class/thermal/thermal_zone0/temp
+```
+
+Which should return the CPU temperature in millidegrees celsius.
+
+----
+
+Original README from mu88 below:
+
 
 This repo contains an application to control the fan of a Raspberry Pi in order to avoid overheating. It is based on ASP.NET Core Blazor Server and uses the [.NET Core IoT Library](https://github.com/dotnet/iot) to access the GPIO pins of the Raspberry Pi.
 

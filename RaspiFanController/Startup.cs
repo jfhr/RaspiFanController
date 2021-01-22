@@ -29,7 +29,7 @@ namespace RaspiFanController
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddHostedService<Worker>();
-            services.AddSingleton<RaspiTemperatureController>();
+            services.AddSingleton<ThermalZoneTemperatureProvider>();
             services.AddSingleton<ITaskHelper, TaskHelper>();
             services.AddSingleton<ITaskCancellationHelper, TaskCancellationHelper>();
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
@@ -41,7 +41,7 @@ namespace RaspiFanController
             }
             else
             {
-                services.AddSingleton<ITemperatureProvider, RaspiTemperatureProvider>();
+                services.AddSingleton<ITemperatureProvider, ThermalZoneTemperatureProvider>();
                 services.AddSingleton<IFanController, Logic.RaspiFanController>();
             }
         }
